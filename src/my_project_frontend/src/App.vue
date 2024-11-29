@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { my_project_backend } from 'declarations/my_project_backend/index';
-let displayMsg = ref('');
+let displayChat = ref([]);
 
 async function handleSubmit(e) {
   e.preventDefault();
@@ -12,7 +12,7 @@ async function handleSubmit(e) {
   }
 
 async function getMsg(e) {
-  displayMsg.value = await my_project_backend.get_msg()
+  displayChat.value = await my_project_backend.get_chat()
 }
 
 getMsg()
@@ -28,6 +28,6 @@ getMsg()
       <input id="msg" alt="msg" type="text" />
       <button type="submit">Click Me!</button>
     </form>
-    <section id="displayMsg">{{ displayMsg }}</section>
+    <section id="displayChat">{{ displayChat }}</section>
   </main>
 </template>
