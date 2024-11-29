@@ -8,7 +8,7 @@ async function handleSubmit(e) {
   const target = e.target;
   const msg = target.querySelector('#msg').value;
   await my_project_backend.save_msg(msg)
-  await getMsg()
+  await getChat()
   }
 
 async function getMsg(e) {
@@ -28,6 +28,8 @@ getMsg()
       <input id="msg" alt="msg" type="text" />
       <button type="submit">Click Me!</button>
     </form>
-    <section id="displayChat">{{ displayChat }}</section>
+    <section id="displayChat">
+      <div v-for="msg in displayChat">{{ msg }}</div>
+    </section>
   </main>
 </template>

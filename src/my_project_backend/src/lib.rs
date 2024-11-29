@@ -1,7 +1,7 @@
 use std::cell::RefCell;
 
 thread_local! {
-    static CHAT: RefCell<<VecString> = RefCell::new(Vec::new());
+    static CHAT: RefCell<Vec<String>> = RefCell::new(Vec::new());
 }
 
 #[ic_cdk::update]
